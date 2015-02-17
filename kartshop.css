@@ -78,6 +78,9 @@ li {
 li .text {
   margin-left: 10px;
 }
+li.checked::after {
+  content: "- Out of Stock";
+}
 
 li.checked {
   color: #888;
