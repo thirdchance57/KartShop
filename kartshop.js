@@ -1,6 +1,7 @@
 Products = new Mongo.Collection("products");
 
 if (Meteor.isClient) {
+  Meteor.subscribe("products");
   // This code only runs on the client
   Template.body.helpers({
     products: function () {
@@ -51,11 +52,10 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 
-} // END isClient
+} // END .isClient
 
 Meteor.methods({
   addProduct: function (text, price) {
-    // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
@@ -72,8 +72,13 @@ Meteor.methods({
   setChecked: function (productId, setChecked) {
     Products.update(productId, { $set: { checked: setChecked} });
   }
-});
+}); // END .methods
 
+if (Meteor.isServer) {
+  Meteor.publish("products", function () {
+    return Products.find();
+  });
+} // END .isServer
 
 
 

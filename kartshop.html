@@ -54,9 +54,11 @@
 
 <template name="productTemplate">
   <li class="{{#if checked}}checked{{/if}}">
-    <button class="delete">&times;</button>
+    {{#if currentUser}}
+      <button class="delete">&times;</button>
 
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    {{/if}}
     <span>{{text}} - ${{price}}.00</span>
   </li>
 </template>
