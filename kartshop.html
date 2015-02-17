@@ -1,0 +1,45 @@
+<head>
+  <title>4State Kart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-xs-12">
+          <div class="jumbotron h1text text-center">
+            <h1><b>4 State Kart Shop</b></h1>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <form class="new-product">
+          <input type="text" name="text" placeholder="Type to add new products" />
+        </form>
+        <br>
+        <br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-sm-3">&nbsp;</div>
+      <div class="col-xs-6 col-sm-6">
+      
+        <ul>
+          {{#each products}}
+            {{> productTemplate}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-xs-6 col-sm-3">&nbsp;</div>
+    </div>
+
+
+
+  </div> <!-- end fluid-container -->
+</body>
+
+<template name="productTemplate">
+  <li>{{text}}</li>
+</template>
