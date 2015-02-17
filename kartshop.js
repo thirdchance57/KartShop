@@ -24,24 +24,20 @@ if (Meteor.isClient) {
   Template.body.events({
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
-      Products.update(this._id, {$set: {checked: ! this.checked}});
+      Meteor.call("setChecked", this._id, ! this.checked);
     },
     "change .hide-checked input": function (event) {
       Session.set("hideChecked", event.target.checked);
     },
     "click .delete": function () {
-      Products.remove(this._id);
+      Meteor.call("deleteProduct", this._id);
     },
     "submit .new-product": function (event) {
       console.log("new-product function fired");
       var text = event.target.text.value;
       var price = event.target.price.value;
       
-      Products.insert({
-        text: text,
-        price: price,
-        createdAt: new Date()
-      });
+      Meteor.call("addProduct", text, price);
 
       event.target.text.value = ""; // Clear after submit
       event.target.price.value = ""; // Clear price
@@ -54,10 +50,29 @@ if (Meteor.isClient) {
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
-  
+
 } // END isClient
 
+Meteor.methods({
+  addProduct: function (text, price) {
+    // Make sure the user is logged in before inserting a task
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
 
+    Products.insert({
+        text: text,
+        price: price,
+        createdAt: new Date()
+    });
+  },
+  deleteProduct: function (productId) {
+    Products.remove(productId);
+  },
+  setChecked: function (productId, setChecked) {
+    Products.update(productId, { $set: { checked: setChecked} });
+  }
+});
 
 
 
