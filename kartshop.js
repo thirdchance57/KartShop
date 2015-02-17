@@ -35,6 +35,7 @@ if (Meteor.isClient) {
     },
     "submit .new-product": function (event) {
       console.log("new-product function fired");
+      event.preventDefault();
       var text = event.target.text.value;
       var price = event.target.price.value;
       
@@ -49,7 +50,7 @@ if (Meteor.isClient) {
   }); // END Template.body.events
 
   Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
+    passwordSignupFields: "EMAIL_ONLY"
   });
 
 } // END .isClient
@@ -78,6 +79,32 @@ if (Meteor.isServer) {
   Meteor.publish("products", function () {
     return Products.find();
   });
+
+
+  // START ROLES
+  var users = [
+      {name:"Chance",email:"chance@gmail.com",roles:['admin']},
+      {name:"Chris",email:"chris@gmail.com",roles:['admin']}
+    ];
+
+  _.each(users, function (user) {
+    var id;
+
+    id = Accounts.createUser({
+      email: user.email,
+      password: "asdfasdf",
+      profile: { name: user.name }
+    });
+
+    if (user.roles.length > 0) {
+      // Need _id of existing user record so this call must come 
+      // after `Accounts.createUser` or `Accounts.onCreate`
+      Roles.addUsersToRoles(id, user.roles);
+    }
+  });
+  // END ROLES
+
+
 } // END .isServer
 
 

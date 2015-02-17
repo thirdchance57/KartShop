@@ -17,7 +17,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        {{#if currentUser}}
+        {{#if isInRole 'admin'}}
           ({{productCount}}) Products For Sale
           <br>
           <label class="hide-checked">
@@ -35,7 +35,9 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-6 col-sm-3">&nbsp;</div>
+      <div class="col-xs-6 col-sm-3">
+        <img src="images/ad1.jpg">
+      </div>
       <div class="col-xs-6 col-sm-6">
       
         <ul>
@@ -54,7 +56,7 @@
 
 <template name="productTemplate">
   <li class="{{#if checked}}checked{{/if}}">
-    {{#if currentUser}}
+    {{#if isInRole 'admin'}}
       <button class="delete">&times;</button>
 
       <input type="checkbox" checked="{{checked}}" class="toggle-checked" />

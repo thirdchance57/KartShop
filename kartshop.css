@@ -99,10 +99,10 @@ li.private {
   margin-left: 5px;
 }
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   li {
     padding: 12px 15px;
-  }
+  }*/
 
   .search {
     width: 150px;
