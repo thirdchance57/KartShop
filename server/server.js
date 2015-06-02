@@ -26,17 +26,16 @@ Meteor.methods({
 // Roles.addUsersToRoles('rNCfz5xmShN8mBDuX', ['admin']);
   // START ROLES
   var users = [
-      {name:"Chance Hines",email:"chancehines@icloud.com",roles:['admin']},
     ];
 
   _.each(users, function (user) {
-    var id;
+    // var id;
 
-    id = Accounts.createUser({
-      email: user.email,
-      // password: "",
-      profile: { name: user.name }
-    });
+    // id = Accounts.createUser({
+    //   email: user.email,
+    //   password: "asdfasdf",
+    //   profile: { name: user.name }
+    // });
 
     if (user.roles.length > 0) {
       // Need _id of existing user record so this call must come 
