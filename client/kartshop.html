@@ -1,5 +1,5 @@
 <head>
-  <title>4State Kart</title>
+  <title>Alien Technology Tire Prep</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -25,8 +25,10 @@
               Hide Out of Stock Products
           </label>
           <form class="new-product">
-            <input type="text" name="text" placeholder="Type to add new products" />
+            <input type="text" name="title" placeholder="Type to add product name" />
+            <input type="text" name="text" placeholder="Type to add description" />
             <input type="text" name="price" placeholder="Type to add price" />
+            <input type="text" name="image" placeholder="Type to add image" />
             <button type="submit" class="btn btn-success">submit</button>
           </form>
           <br>
@@ -58,9 +60,11 @@
   <li class="{{#if checked}}checked{{/if}}">
     {{#if isInRole 'admin'}}
       <button class="delete">&times;</button>
-
       <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
     {{/if}}
-    <span>{{text}} - ${{price}}.00</span>
+    <h3>{{title}}</h3>
+    <span>{{text}}</span><br>
+    <span>${{price}}.00</span>
+    <img src="/images/{{image}}" class="product-image">
   </li>
 </template>
