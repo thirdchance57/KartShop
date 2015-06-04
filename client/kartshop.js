@@ -66,7 +66,8 @@ Template.body.events({
     Session.set("hideChecked", event.target.checked);
   },
   "click .delete": function () {
-    if (confirm('Are you sure you want to DELETE?')) {
+    console.log(this.title);
+    if (confirm('Are you sure you want to DELETE ' + this.title )) {
       Meteor.call("deleteProduct", this._id);
     // Save it!
     } else {
