@@ -109,10 +109,13 @@ li.private {
   clear: both;
 }
 
-.new-product input {
-  padding-bottom: 5px;
-}
-
 .product-image {
   max-width: 150px;
+}
+
+.small-image {
+  max-width: 250px;
+}
+.form-style {
+  padding: 0px 20px;
 }

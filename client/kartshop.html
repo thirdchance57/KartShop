@@ -7,7 +7,7 @@
   <div class="fluid-container">
     <div class="row">
       <div class="col-xs-12">
-          <div class="jumbotron h1text text-center">
+          <div class="jumbotron h1text text-center title-container">
             <h1><b>Alien Technology Tire Prep</b></h1>
           <div class="smalltext">
             {{> loginButtons}}
@@ -15,7 +15,7 @@
           </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row form-style">
       <div class="col-xs-12">
         {{#if isInRole 'admin'}}
           ({{productCount}}) Products For Sale
@@ -24,13 +24,14 @@
             <input type="checkbox" checked="{{hideChecked}}" />
               Hide Out of Stock Products
           </label>
-          <form class="new-product">
-            <input type="text" name="title" placeholder="Type to add product name" />
-            <input type="text" name="text" placeholder="Type to add description" />
-            <input type="text" name="price" placeholder="Type to add price" />
-            <input type="text" name="image" placeholder="Type to add image" />
-            <button type="submit" class="btn btn-success">submit</button>
-          </form>
+          <div class="new-product">
+            <input type="text" name="title" placeholder="Type to add product name">
+            <textarea rows="5" cols="70" type="text" name="text" placeholder="Type to add description"></textarea>
+            <input type="text" name="price" placeholder="Type to add price">
+            <input type="text" name="image" placeholder="Type to add image">
+            <button class="btn btn-success save-product">Add</button>
+            <button class="btn btn-success update-product">Update</button>
+          </div>
           <br>
         {{/if}}
       </div>
@@ -51,8 +52,6 @@
       <div class="col-xs-6 col-sm-3">&nbsp;</div>
     </div>
 
-
-
   </div> <!-- end fluid-container -->
 </body>
 
@@ -60,7 +59,8 @@
   <li class="{{#if checked}}checked{{/if}}">
     {{#if isInRole 'admin'}}
       <button class="delete">&times;</button>
-      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <a href="#" class="edit-link">edit</a>
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
     {{/if}}
     <h3>{{title}}</h3>
     <span>{{text}}</span><br>

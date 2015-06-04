@@ -17,9 +17,36 @@ Template.body.helpers({
   productCount: function () {
     return Products.find({checked: {$ne: true}}).count();
   }
-}); // END Template.body.helpers
+});
 
 Template.body.events({
+  "click a.edit-link": function (event) {
+    // console.log(this);
+    Session.set('id', this._id);
+    $("input[name~='title']").val(this.title);
+    $("textarea[name~='text']").val(this.text);
+    $("input[name~='price']").val(this.price);
+    $("input[name~='image']").val(this.image);
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+  },
+  "click .update-product": function (event) {
+    event.preventDefault();
+    var id = Session.get('id');
+    var obj = {};
+    obj.title = $("input[name~='title']").val();
+    obj.text = $("textarea[name~='text']").val();
+    obj.price = $("input[name~='price']").val();
+    obj.image = $("input[name~='image']").val();
+    
+    console.log(id, obj);
+    Meteor.call("updateProduct", id, obj);
+
+    title = $("input[name~='title']").val("");
+    text =  $("textarea[name~='text']").val("");
+    price = $("input[name~='price']").val("");
+    image = $("input[name~='image']").val("");
+  },
   "click .toggle-checked": function () {
     // Set the checked property to the opposite of its current value
     Meteor.call("setChecked", this._id, ! this.checked);
@@ -30,25 +57,23 @@ Template.body.events({
   "click .delete": function () {
     Meteor.call("deleteProduct", this._id);
   },
-  "submit .new-product": function (event) {
-    console.log("new-product function fired");
+  "click .save-product": function (event) {
     event.preventDefault();
-    var title = event.target.title.value;
-    var text = event.target.text.value;
-    var price = event.target.price.value;
-    var image = event.target.image.value;
+    var title = $("input[name~='title']").val();
+    var text =  $("textarea[name~='text']").val();
+    var price = $("input[name~='price']").val();
+    var image = $("input[name~='image']").val();
     
     Meteor.call("addProduct", title, text, price, image);
 
-    event.target.title.value = ""; // Clear after submit
-    event.target.text.value = ""; // Clear after submit
-    event.target.price.value = ""; // Clear price
-    event.target.image.value = "";
-    console.log(event);
+    title = $("input[name~='title']").val("");
+    text =  $("textarea[name~='text']").val("");
+    price = $("input[name~='price']").val("");
+    image = $("input[name~='image']").val("");
 
     return false; // Prevent default form submit
   }
-}); // END Template.body.events
+});
 
 Accounts.ui.config({
   passwordSignupFields: "EMAIL_ONLY"
