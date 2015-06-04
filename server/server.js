@@ -33,9 +33,7 @@ Meteor.methods({
   // START ROLES
   var users = Meteor.users.find({ emails: { $elemMatch: { address: "chrisnewman34@yahoo.com" } } }).fetch();
   // var users = Meteor.users.find({ emails: { $elemMatch: { address: "thirdchance57@hotmail.com" } } }).fetch();
-  console.log('users', users);
   _.each(users, function (user) {
-    console.log('each', user._id);
 
     // var id;
 

@@ -29,8 +29,12 @@
             <textarea rows="5" cols="70" type="text" name="text" placeholder="Type to add description"></textarea>
             <input type="text" name="price" placeholder="Type to add price">
             <input type="text" name="image" placeholder="Type to add image">
-            <button class="btn btn-success save-product">Add</button>
+            {{#if editMode}}
             <button class="btn btn-success update-product">Update</button>
+            {{else}}
+            <button class="btn btn-success save-product">Add</button>
+            {{/if}}
+            <button class="btn btn-default cancel">Cancel</button>
           </div>
           <br>
         {{/if}}
