@@ -14,9 +14,9 @@ Template.body.helpers({
   hideChecked: function () {
     return Session.get("hideChecked");
   },
-  productCount: function () {
-    return Products.find({checked: {$ne: true}}).count();
-  },
+  // productCount: function () {
+  //   return Products.find({checked: {$ne: true}}).count();
+  // },
   editMode: function(){
     return Session.equals('viewMode', 'edit');
   }

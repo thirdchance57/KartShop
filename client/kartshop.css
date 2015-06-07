@@ -2,11 +2,6 @@ body {
   font-family: sans-serif;
   font-size: 14px;
 }
-form {
-  margin-top: 10px;
-  margin-bottom: -10px;
-  position: relative;
-}
 .jumbotron {
   background: green;
   background-image: linear-gradient(to bottom, green, #AFCFBA 100%);
@@ -21,44 +16,14 @@ form {
   float: left; 
   text-shadow: none;
 }
-.new-product input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-}
-.new-product input:focus{
-  outline: 0;
-}
-
-  
 #login-buttons {
   display: block;
 }
-
-.new-product input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-}
-
-.new-product input:focus{
-  outline: 0;
-}
-
 ul {
   margin: 0;
   padding: 0;
   background: #AECFB9;
 }
-
 .delete {
   float: right;
   font-weight: bold;
@@ -67,55 +32,101 @@ ul {
   border: none;
   position: relative;
 }
-
 li {
+  clear:both;
   position: relative;
   list-style: none;
-  padding: 15px;
+  padding: 0px 15px 15px 15px;
+  margin: 0px 15px;
   border-bottom: #eee solid 1px;
 }
-
 li .text {
   margin-left: 10px;
 }
 li.checked::after {
   content: "- Out of Stock";
 }
-
 li.checked {
   color: #888;
 }
-
 li.checked .text {
   text-decoration: line-through;
 }
-
 li.private {
   background: #eee;
   border-color: #ddd;
 }
-
 .toggle-private {
   margin-left: 5px;
 }
-
-/*@media (max-width: 600px) {
-  li {
-    padding: 12px 15px;
-  }*/
-
-.search {
-  width: 150px;
-  clear: both;
+.product-form {
+  padding: 0 30px;
 }
-
-.product-image {
-  max-width: 150px;
+.product-row {
+  padding: 40px 0px;
 }
-
+.follow-footer {
+  padding: 20px 0px;
+  background-color: #efefef;
+  text-align: center;
+}
 .small-image {
   max-width: 250px;
 }
-.form-style {
-  padding: 0px 20px;
+.icon-image {
+  max-width: 25px;
+}
+@media screen and (max-width: 770px) {
+  .right-img {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 700px) {
+  .inline-item {
+    display: inline-block !important;
+  }
+}
+/* ==========================================================================
+   POSITION
+   ========================================================================== */
+.center-x {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.center-y {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.center-xy {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* ==========================================================================
+   UTILS
+   ========================================================================== */
+.hidden, .hide {
+    display: none !important;
+    visibility: hidden;
+}
+.clear {
+  clear:both;
+}
+.float-left{
+  float: left;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.mr-20 {
+  margin-right: 20px;
 }

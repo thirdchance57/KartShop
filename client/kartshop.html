@@ -1,10 +1,12 @@
 <head>
   <title>Alien Technology Tire Prep</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
   <div class="fluid-container">
+
     <div class="row">
       <div class="col-xs-12">
           <div class="jumbotron h1text text-center title-container">
@@ -15,60 +17,96 @@
           </div>
       </div>
     </div>
-    <div class="row form-style">
-      <div class="col-xs-12">
-        {{#if isInRole 'admin'}}
-          ({{productCount}}) Products For Sale
-          <br>
-          <label class="hide-checked">
-            <input type="checkbox" checked="{{hideChecked}}" />
+
+  {{#if isInRole 'admin'}}
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 product-form">
+        <div class="form-group">
+          <!--checkbox-->
+          <label class="hide-checked"><input type="checkbox" checked="{{hideChecked}}">
               Hide Out of Stock Products
           </label>
-          <div class="new-product">
-            <input type="text" name="title" placeholder="Type to add product name">
-            <textarea rows="5" cols="70" type="text" name="text" placeholder="Type to add description"></textarea>
-            <input type="text" name="price" placeholder="Type to add price">
-            <input type="text" name="image" placeholder="Type to add image">
-            {{#if editMode}}
-            <button class="btn btn-success update-product">Update</button>
-            {{else}}
-            <button class="btn btn-success save-product">Add</button>
-            {{/if}}
-            <button class="btn btn-default cancel">Cancel</button>
-          </div>
-          <br>
+        </div>
+        <div class="form-group">
+          <!-- text input -->
+          <label>Product Name</label>
+          <input class="form-control" type="text" name="title" placeholder="Product name">
+        </div>
+          <!-- text input -->
+        <div class="form-group">
+          <label>Price</label>
+          <input class="form-control" type="text" name="price" placeholder="Price">
+        </div>
+          <!-- text input -->
+        <div class="form-group">
+          <label>Image File</label>
+          <input class="form-control" type="text" name="image" placeholder="Image">
+        </div>
+          <!-- text area input-->
+        <div class="form-group">
+          <label>Description</label>
+            <textarea class="form-control" rows="5" cols="62" type="text" name="text" placeholder="Description"></textarea>
+        </div>
+        <br>
+        {{#if editMode}}
+        <button class="btn btn-success update-product">Update</button>
+        {{else}}
+        <button class="btn btn-success save-product">Add</button>
         {{/if}}
-      </div>
+        <button class="btn btn-default cancel">Cancel</button>
+        <br>
     </div>
+  </div>
+  {{/if}}
 
-    <div class="row">
-      <div class="col-xs-6 col-sm-3">
-        <img src="images/ad1.jpg">
+    <div class="row product-row">
+      <div class="col-xs-6 col-sm-3 ">
+        <img class="small-image" src="images/greenBud.jpg">
       </div>
       <div class="col-xs-6 col-sm-6">
-      
         <ul>
           {{#each products}}
             {{> productTemplate}}
           {{/each}}
         </ul>
       </div>
-      <div class="col-xs-6 col-sm-3">&nbsp;</div>
+      <div class="right-img">
+        <div class="col-sm-3">
+          <img class="small-image" src="images/yellowBud.jpg">
+        </div>
+      </div>
     </div>
-
   </div> <!-- end fluid-container -->
+    {{> footerTemplate}}
 </body>
 
 <template name="productTemplate">
   <li class="{{#if checked}}checked{{/if}}">
-    {{#if isInRole 'admin'}}
-      <button class="delete">&times;</button>
-      <a href="#" class="edit-link">edit</a>
-      <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
-    {{/if}}
-    <h3>{{title}}</h3>
-    <span>{{text}}</span><br>
-    <span>${{price}}.00</span>
-    <img src="/images/{{image}}" class="product-image">
+    <div class="row ">
+      {{#if isInRole 'admin'}}
+        <button class="delete">&times;</button>
+        <a href="#" class="edit-link">edit</a>
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
+      {{/if}}
+      <div class="xs-col-12">
+        <h3>{{title}}</h3>
+        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 inline-item">
+        <span class="inline-item">{{text}}</span><br>
+        <span><strong>${{price}}.00</strong></span>
+      </div>
+    </div>
   </li>
+</template>
+
+<template name="footerTemplate">
+  <footer>
+    <div class="fluid-container">
+      <div class="row follow-footer">
+        <div class="col-xs-12 col-sm-8">
+          <p class="text-muted">Follow us on Facebook</p>
+          <a href="http://https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174">4 State Kart Shop <img class="icon-image" src="images/facebook-logo.png"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
