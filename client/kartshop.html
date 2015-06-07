@@ -21,40 +21,44 @@
   {{#if isInRole 'admin'}}
   <div class="row">
     <div class="col-xs-12 col-sm-8 product-form">
+        <!-- text input -->
         <div class="form-group">
-          <!--checkbox-->
-          <label class="hide-checked"><input type="checkbox" checked="{{hideChecked}}">
-              Hide Out of Stock Products
-          </label>
-        </div>
-        <div class="form-group">
-          <!-- text input -->
           <label>Product Name</label>
           <input class="form-control" type="text" name="title" placeholder="Product name">
         </div>
-          <!-- text input -->
+
+        <!-- text input -->
         <div class="form-group">
           <label>Price</label>
           <input class="form-control" type="text" name="price" placeholder="Price">
         </div>
-          <!-- text input -->
+
+        <!-- text input -->
         <div class="form-group">
           <label>Image File</label>
           <input class="form-control" type="text" name="image" placeholder="Image">
         </div>
-          <!-- text area input-->
+
+        <!-- text area input-->
         <div class="form-group">
           <label>Description</label>
             <textarea class="form-control" rows="5" cols="62" type="text" name="text" placeholder="Description"></textarea>
         </div>
         <br>
         {{#if editMode}}
-        <button class="btn btn-success update-product">Update</button>
+          <button class="btn btn-success update-product">Update</button>
         {{else}}
-        <button class="btn btn-success save-product">Add</button>
+          <button class="btn btn-success save-product">Add</button>
         {{/if}}
         <button class="btn btn-default cancel">Cancel</button>
         <br>
+        
+        <!--checkbox-->
+        <!-- <div class="form-group">
+          <label class="hide-checked"><input type="checkbox" checked="{{hideChecked}}">
+              Hide Out of Stock Products
+          </label>
+        </div> -->
     </div>
   </div>
   {{/if}}
@@ -86,7 +90,7 @@
       {{#if isInRole 'admin'}}
         <button class="delete">&times;</button>
         <a href="#" class="edit-link">edit</a>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
+        <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked"/> -->
       {{/if}}
       <div class="xs-col-12">
         <h3>{{title}}</h3>

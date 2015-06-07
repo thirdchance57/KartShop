@@ -11,12 +11,10 @@ Template.body.helpers({
     }
     console.log("product.find working");
   },
-  hideChecked: function () {
-    return Session.get("hideChecked");
-  },
-  // productCount: function () {
-  //   return Products.find({checked: {$ne: true}}).count();
+  // hideChecked: function () {
+  //   return Session.get("hideChecked");
   // },
+
   editMode: function(){
     return Session.equals('viewMode', 'edit');
   }
@@ -31,7 +29,6 @@ Template.body.events({
     Session.set('viewMode', 'add');
   },
   "click a.edit-link": function (event) {
-    // console.log(this);
     Session.set('id', this._id);
     Session.set('viewMode', 'edit');
     $("input[name~='title']").val(this.title);
