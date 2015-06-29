@@ -1,7 +1,7 @@
 Meteor.subscribe("products");
 // This code only runs on the client
 Template.body.rendered = function () {
-  Session.setDefault('viewMode', 'add')
+  Session.setDefault('viewMode', 'add');
 };
 Template.body.helpers({
   products: function () {

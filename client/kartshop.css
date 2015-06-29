@@ -7,9 +7,17 @@ body {
   background-image: linear-gradient(to bottom, green, #AFCFBA 100%);
   padding: 20px 15px 15px 15px;
   position: relative;
+
   color: #f7fff7;
   font: italic bolder 50px/1.5em sans-serif;
   text-shadow: 9px 4px 8px rgba(0, 0, 0, 1);
+}
+.state-logo {
+  height:94px;
+}
+.header-flex {
+  display: flex;  
+  justify-content: space-around;
 }
 .smalltext{
   font-size: 15px;
