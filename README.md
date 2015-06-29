@@ -1,6 +1,5 @@
 # KartShop
 Meteor.js app
 
-What up everybody? 
-
-This is a inventory managment tool a store with admin tools
+This is an inventory managment app
+check it: http://4statekartshop.meteor.com/
