@@ -12,13 +12,6 @@ body {
   font: italic bolder 50px/1.5em sans-serif;
   text-shadow: 9px 4px 8px rgba(0, 0, 0, 1);
 }
-.state-logo {
-  height:94px;
-}
-.header-flex {
-  display: flex;  
-  justify-content: space-around;
-}
 .smalltext{
   font-size: 15px;
   float: left; 
@@ -84,6 +77,7 @@ li.private {
 .icon-image {
   max-width: 25px;
 }
+
 @media screen and (max-width: 770px) {
   .right-img {
     display: none !important;
@@ -134,6 +128,12 @@ li.private {
 }
 .mt-20 {
   margin-top: 20px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mb-40 {
+  margin-bottom: 40px;
 }
 .mb-20 {
   margin-bottom: 20px;
