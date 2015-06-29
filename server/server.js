@@ -14,9 +14,11 @@ Meteor.methods({
         price: price,
         image: image
     });
+    return true;
   },
   deleteProduct: function (productId) {
     Products.remove(productId);
+    return true;
   },
   setChecked: function (productId, setChecked) {
     Products.update(productId, { $set: { checked: setChecked} });
@@ -26,6 +28,7 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     Products.update({_id: productId}, {$set:obj});
+    return true;
   }
 
 });

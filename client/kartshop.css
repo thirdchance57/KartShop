@@ -87,6 +87,12 @@ li.private {
     display: inline-block !important;
   }
 }
+@media screen and (max-width: 320px) {
+  .inline-item {
+    max-width: 120px;
+    display: inline-block !important;
+  }
+}
 /* ==========================================================================
    POSITION
    ========================================================================== */
