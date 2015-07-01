@@ -5,13 +5,15 @@
 </head>
 
 <body>
-  <div class="fluid-container">
 
   {{> navBar}}
 
+  <div class="fluid-container">
   {{#if isInRole 'admin'}}
   <div class="row">
-    <div class="col-xs-12 col-sm-8 product-form">
+    <button class="show-form {{hideForm}}">Open Form</button>
+    <div class="col-xs-12 col-sm-8 product-form {{showForm}}">
+      <button class="hide-form">&times;</button>
       <h3>{{header}}</h3>
         <!-- text input -->
         <div class="form-group">

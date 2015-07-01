@@ -59,6 +59,13 @@ ul {
   padding: 0;
   background: #AECFB9;
 }
+.hide-form{
+  margin-top: 10px;
+  float: right;
+}
+.show-form{
+  margin: 10px 0 0 39px;
+}
 .delete {
   float: right;
   font-weight: bold;
@@ -95,7 +102,8 @@ li.private {
   margin-left: 5px;
 }
 .product-form {
-  padding: 0 30px;
+  background: #ececec;
+  padding: 0 30px 30px 30px;
 }
 .product-row {
   padding: 30px 0px;

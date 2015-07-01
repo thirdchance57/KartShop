@@ -5,14 +5,22 @@ Template.body.rendered = function () {
 };
 Template.body.helpers({
   products: function () {
-    if (Session.get("hideChecked")) {
-      // If hide completed is checked, filter tasks
-      return Products.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
-    } else {
+    // if (Session.get("hideChecked")) {
+    //   // If hide completed is checked, filter tasks
+    //   return Products.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
+    // } else {
       // Otherwise, return all of the tasks
       return Products.find({}, {sort: {createdAt: -1}});
-    }
-    console.log("product.find working");
+    // }
+  },
+  showForm: function () {
+    if(Session.equals('viewMode', 'hide'))
+      return 'hide';
+  },
+  hideForm: function () {
+    var ses = Session.get('viewMode');
+    if (ses === 'add' && 'edit' && 'added' && 'updated')
+      return 'hide';
   },
   // hideChecked: function () {
   //   return Session.get("hideChecked");
@@ -86,14 +94,20 @@ Template.body.events({
     // Set the checked property to the opposite of its current value
     Meteor.call("setChecked", this._id, ! this.checked);
   },
-  "change .hide-checked input": function (event) {
-    Session.set("hideChecked", event.target.checked);
-  },
+  // "change .hide-checked input": function (event) {
+  //   Session.set("hideChecked", event.target.checked);
+  // },
   "click .delete": function () {
     console.log(this.title);
     if (confirm('Are you sure you want to DELETE ' + this.title ))
       Meteor.call("deleteProduct", this._id);
 
+  },
+  "click .hide-form": function () {
+    Session.set("viewMode", 'hide');
+  },
+  "click .show-form": function () {
+    Session.set("viewMode", 'add');
   },
   "click .save-product": function (event) {
     event.preventDefault();
