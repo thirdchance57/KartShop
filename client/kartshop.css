@@ -19,7 +19,7 @@ body {
 }
 .product-title{  
   color: #f7fff7;
-  font: italic bolder 20px/1.5em sans-serif;
+  font: italic bolder 26px/1.5em sans-serif;
   text-shadow: 3px 2px 3px rgba(0, 0, 0, 1);
   padding-left: 20px;
 }
@@ -81,7 +81,8 @@ li.private {
   background-color: #efefef;
   text-align: center;
 }
-.small-image {
+.background-image {
+  opacity: 0.7;
   max-width: 250px;
 }
 .icon-image {
