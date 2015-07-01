@@ -21,8 +21,14 @@
 
         <!-- text input -->
         <div class="form-group">
-          <label>Price</label>
-          <input class="form-control" type="text" name="price" placeholder="Price">
+          <label>Price Gallon</label>
+          <input class="form-control" type="text" name="price" placeholder="Gallon Price">
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <label>Price Quart</label>
+          <input class="form-control" type="text" name="quart" placeholder="Quart Price">
         </div>
 
         <!-- text input -->
@@ -87,7 +93,7 @@
         <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked"/> -->
       {{/if}}
       <div class="xs-col-12">
-        <h3>{{title}}</h3>
+        <h3 class="product-title ">{{title}}</h3>
         <img src="/images/{{image}}" class="pull-left mb-20 mr-20 inline-item">
         <span class="inline-item">{{text}}</span><br>
         <h4>{{price}}</h4>

@@ -44,6 +44,7 @@ Template.body.events({
     var title = $("input[name~='title']").val("");
     var text =  $("textarea[name~='text']").val("");
     var price = $("input[name~='price']").val("");
+    var quart = $("input[name~='quart']").val("");
     var image = $("input[name~='image']").val("");
     Session.set('viewMode', 'add');
   },
@@ -53,6 +54,7 @@ Template.body.events({
     $("input[name~='title']").val(this.title);
     $("textarea[name~='text']").val(this.text);
     $("input[name~='price']").val(this.price);
+    $("input[name~='quart']").val(this.quart);
     $("input[name~='image']").val(this.image);
     $("html, body").animate({ scrollTop: 0 }, 600);
     return false;
@@ -64,14 +66,16 @@ Template.body.events({
     obj.title = $("input[name~='title']").val();
     obj.text = $("textarea[name~='text']").val();
     obj.price = $("input[name~='price']").val();
+    obj.quart = $("input[name~='quart']").val();
     obj.image = $("input[name~='image']").val();
     
-    if (confirm('Are you sure you want ADD: ' + obj.title + ' price: $' + obj.price + ' ' + obj.text)) {
+    if (confirm('Are you sure you want ADD: ' + obj.title + ' gallon:$' + obj.price +' quart:$' + obj.quart + ' description:' + obj.text)) {
       Meteor.call("updateProduct", id, obj, function (e, r){
         if (r) {
           title = $("input[name~='title']").val("");
           text =  $("textarea[name~='text']").val("");
           price = $("input[name~='price']").val("");
+          quart = $("input[name~='quart']").val("");
           image = $("input[name~='image']").val("");
           Session.set('viewMode', 'updated');
         }
@@ -96,14 +100,16 @@ Template.body.events({
     var title = $("input[name~='title']").val();
     var text =  $("textarea[name~='text']").val();
     var price = $("input[name~='price']").val();
+    var quart = $("input[name~='quart']").val();
     var image = $("input[name~='image']").val();
     
-    if (confirm('Are you sure you want ADD: ' + title + ' price: $' + price + ' ' + text)) {
+    if (confirm('Are you sure you want ADD: ' + title + ' gallon:$' + price + ' quart:$' + quart + ' description:' + text)) {
       Meteor.call("addProduct", title, text, price, image, function (e, r){
         if (r) {
           title = $("input[name~='title']").val("");
           text =  $("textarea[name~='text']").val("");
           price = $("input[name~='price']").val("");
+          quart = $("input[name~='quart']").val("");
           image = $("input[name~='image']").val("");
           Session.set('viewMode', 'added');
         }
