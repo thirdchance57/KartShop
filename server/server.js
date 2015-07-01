@@ -3,7 +3,7 @@ Meteor.publish("products", function () {
 });
 
 Meteor.methods({
-  addProduct: function (title, text, price, image) {
+  addProduct: function (title, text, price, quart, image) {
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
@@ -12,6 +12,7 @@ Meteor.methods({
         title: title,
         text: text,
         price: price,
+        quart: quart,
         image: image
     });
     return true;
