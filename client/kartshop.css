@@ -23,6 +23,10 @@ body {
   text-shadow: 3px 2px 3px rgba(0, 0, 0, 1);
   padding-left: 20px;
 }
+.price-text{
+  margin-right: 20px;
+  text-align: right;
+}
 #login-buttons {
   display: block;
 }
