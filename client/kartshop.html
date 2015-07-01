@@ -117,14 +117,19 @@
 </template>
 
 <template name="navBar">
-    <div class="row">
-      <div class="col-xs-12">
-          <div class="jumbotron text-center">
-            <h1><b>Alien Tire Prep</b></h1>
-            <div class="smalltext">
-              {{> loginButtons}}
-            </div>
-          </div>
+    <div class="jumbotron-container">
+      <div class="jumbotron">
+        <h1><b>Alien Tire Prep</b></h1>
+      </div>
+      <div class="jumbotron-links">
+        <div class="smalltext">
+          By:<a href="https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174">4 State Kart Shop</a> 
+        </div>           
+        <div class="smalltext">
+          {{> loginButtons}}
+        </div>
+      </div>
+      <div class="jumbotron-rainbow">
       </div>
     </div>
 </template>
