@@ -69,7 +69,7 @@ Template.body.events({
     obj.quart = $("input[name~='quart']").val();
     obj.image = $("input[name~='image']").val();
     
-    if (confirm('Are you sure you want ADD: ' + obj.title + ' gallon:$' + obj.price +' quart:$' + obj.quart + ' description:' + obj.text)) {
+    if (confirm('Are you sure you want to save/edit: \n' + obj.title + ' \n' + obj.price +'\n' + obj.quart + '\n' + obj.text)) {
       Meteor.call("updateProduct", id, obj, function (e, r){
         if (r) {
           title = $("input[name~='title']").val("");
@@ -103,7 +103,7 @@ Template.body.events({
     var quart = $("input[name~='quart']").val();
     var image = $("input[name~='image']").val();
     
-    if (confirm('Are you sure you want ADD: ' + title + ' gallon:$' + price + ' quart:$' + quart + ' description:' + text)) {
+    if (confirm('Are you sure you want add product:\n ' + title + '\n' + price + '\n' + quart + '\n' + text)) {
       Meteor.call("addProduct", title, text, price, image, function (e, r){
         if (r) {
           title = $("input[name~='title']").val("");
