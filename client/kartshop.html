@@ -5,10 +5,10 @@
 </head>
 
 <body>
+  <div class="fluid-container">
 
   {{> navBar}}
 
-  <div class="fluid-container">
   {{#if isInRole 'admin'}}
   <div class="row">
     <button class="show-form {{hideForm}}">Open Form</button>
@@ -119,7 +119,6 @@
 </template>
 
 <template name="navBar">
-    <div class="jumbotron-container">
       <div class="jumbotron">
         <h1><b>Alien Tire Prep</b></h1>
       </div>
@@ -133,5 +132,4 @@
       </div>
       <div class="jumbotron-rainbow">
       </div>
-    </div>
 </template>
