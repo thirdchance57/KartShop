@@ -1,7 +1,3 @@
-Meteor.publish("products", function () {
-    return Products.find();
-});
-
 Meteor.methods({
   addProduct: function (title, text, price, quart, image) {
     if (! Meteor.userId()) {
