@@ -24,10 +24,7 @@ body {
   }
 }
 .jumbotron-links {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  justify-content: space-between;
+  padding: 0px 20px;
   background: #AFCFBA;
 }
 .jumbotron-rainbow {
@@ -39,7 +36,6 @@ body {
 }
 .smalltext{
   font-size: 15px;
-  padding: 0px 20px;
   float: left; 
   text-shadow: none;
 }
