@@ -5,6 +5,7 @@
 </head>
 
 <body>
+<!-- <template name="mainLayout"> -->
   <div class="fluid-container">
 
   {{> navBar}}
@@ -85,10 +86,11 @@
   </div> <!-- end fluid-container -->
     {{> footerTemplate}}
 </body>
+<!-- </template> -->
 
 <template name="productTemplate">
-  <li class="{{#if checked}}checked{{/if}}">
-    <div class="row ">
+  <li class="{{#if checked}}checked{{/if}}" data-action="product">
+    <div class="row">
       {{#if isInRole 'admin'}}
         <button class="delete">&times;</button>
         <a href="#" class="edit-link">edit</a>
@@ -124,19 +126,22 @@
 </template>
 
 <template name="navBar">
-      <div class="jumbotron">
-        <h1><b>Alien Tire Prep</b></h1>
+  <div class="jumbotron">
+    <div class="logo">
+      <a href="/products"><img class="logo-img" src="images/greenbudnoglow.png"></a>
+    </div>
+    <h1><b>Alien Tire Prep</b></h1>
+  </div>
+  <div class="row jumbotron-links">
+    <div class="col-xs-12">
+      <div class="smalltext pull-right">
+        <span>By:<a href="https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174"> 4 State Kart Shop</a></span>
       </div>
-      <div class="row jumbotron-links">
-          <div class="col-xs-12">
-            <div class="smalltext pull-right">
-              <span>{{> loginButtons}}</span>
-            </div>
-            <div class="smalltext">
-              <span>By:<a href="https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174"> 4 State Kart Shop</a></span>
-            </div>
-          </div>
+      <div class="smalltext">
+        <span>{{> loginButtons}}</span>
       </div>
+    </div>
+  </div>
 
-      <div class="jumbotron-rainbow"></div>
+  <div class="jumbotron-rainbow"></div>
 </template>

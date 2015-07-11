@@ -1,5 +1,3 @@
-// Meteor.subscribe("products");
-// This code only runs on the client
 Template.body.rendered = function () {
   Session.setDefault('viewMode', 'add');
 };
@@ -49,6 +47,9 @@ Template.body.helpers({
 });
 
 Template.body.events({
+  "click [data-action=product]": function () {
+    FlowRouter.go('/products/' + this._id);
+  },
   "click .cancel": function () {
     var title = $("input[name~='title']").val("");
     var text =  $("textarea[name~='text']").val("");
