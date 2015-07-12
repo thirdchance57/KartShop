@@ -1,4 +1,5 @@
 <template name="Main">
+  {{#if isSubReady 'products'}}
   <div class="fluid-container">
 
   {{> AdminProductForm}}
@@ -23,6 +24,9 @@
       </div>
     </div>
   </div> <!-- end fluid-container -->
+  {{else}}
+    <div class="loading"><h4>Loading...</h4></div>
+  {{/if}}
 </template>
 
 <template name="productTemplate">
