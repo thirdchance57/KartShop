@@ -6,7 +6,7 @@ Template.Main.helpers({
 
 Template.Main.events({
   "click [data-action=product]": function () {
-    FlowRouter.go('/products/' + this._id);
+    FlowRouter.go('/product/' + this._id);
   },
   "click a.edit-link": function (event) {
     Session.set('editMode', true);
@@ -29,7 +29,3 @@ Template.Main.events({
 Accounts.ui.config({
   passwordSignupFields: "EMAIL_ONLY"
 });
-
-
-
-

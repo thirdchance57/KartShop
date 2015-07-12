@@ -34,7 +34,6 @@ Template.AdminProductForm.events({
     if (confirm('Are you sure you want to save/edit: \n' + obj.title + ' \n' + obj.price +'\n' + obj.quart + '\n' + obj.text)) {
       Meteor.call("updateProduct", id, obj, function (e, r){
         if (r) {
-          console.log(r);
           title = $("input[name~='title']").val("");
           text =  $("textarea[name~='text']").val("");
           price = $("input[name~='price']").val("");

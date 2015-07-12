@@ -3,7 +3,6 @@ Meteor.methods({
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
-
     Products.insert({
         title: title,
         text: text,
@@ -26,7 +25,6 @@ Meteor.methods({
     Products.update(productId, {$set:obj});
     return true;
   }
-
 });
 // Roles.addUsersToRoles('rNCfz5xmShN8mBDuX', ['admin']);
   // START ROLES

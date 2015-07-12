@@ -1,3 +1,13 @@
-<template name="ProductDetail">
-asdfasdflkjasdf;lkajsdf;lkajsdf;lkasjdf;lk
+<template name="ProductDetail">  
+  {{#if isSubReady 'product'}}
+    {{#with getProduct}}
+    <h2>{{title}}</h2>
+    <p>{{price}}</p>
+    <p>{{quart}}</p>
+    <p>{{text}}</p>
+    <img src="{{image}}">
+    {{/with}}
+  {{else}}
+    Loading...
+  {{/if}}
 </template>
