@@ -13,9 +13,8 @@
   color: #f7fff7;
   background: green;
   background-image: linear-gradient(to bottom, green, #AFCFBA 100%);
-}
-@media screen and (max-width: 770px) {
-  .jumbotron {
+  
+  @media screen and (max-width: 770px) {
     height: 80px;
   }
 }
@@ -38,10 +37,9 @@
 .logo-img{
   max-width: 105px;
   margin: 5px 5px;
-}
-@media screen and (max-width: 770px) {
-  .logo-img {
-    display: none;
+
+  @media screen and (max-width: 770px) {
+      display: none;
   }
 }
 .smalltext{

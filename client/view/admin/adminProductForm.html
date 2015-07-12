@@ -1,0 +1,46 @@
+<template name="AdminProductForm">
+  {{#if isInRole 'admin'}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 product-form">
+        <h3>{{header}}</h3>
+          <!-- text input -->
+          <div class="form-group">
+            <label>Product Name</label>
+            <input class="form-control" type="text" name="title" placeholder="Product name">
+          </div>
+
+          <!-- text input -->
+          <div class="form-group">
+            <label>Price Gallon</label>
+            <input class="form-control" type="text" name="price" placeholder="Gallon Price">
+          </div>
+
+          <!-- text input -->
+          <div class="form-group">
+            <label>Price Quart</label>
+            <input class="form-control" type="text" name="quart" placeholder="Quart Price">
+          </div>
+
+          <!-- text input -->
+          <div class="form-group">
+            <label>Image File</label>
+            <input class="form-control" type="text" name="image" placeholder="Image">
+          </div>
+
+          <!-- text area input-->
+          <div class="form-group">
+            <label>Description</label>
+              <textarea class="form-control" rows="5" cols="62" type="text" name="text" placeholder="Description"></textarea>
+          </div>
+          <br>
+          {{#if editMode}}
+            <button data-action="update-product" class="btn btn-success">Save</button>
+          {{else}}
+            <button data-action="save-product" class="btn btn-success">Add New</button>
+          {{/if}}
+          <button data-action="cancel" class="btn btn-default">Cancel</button>
+          <br>
+      </div>
+    </div>
+  {{/if}}
+</template>

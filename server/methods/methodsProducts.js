@@ -17,14 +17,13 @@ Meteor.methods({
     Products.remove(productId);
     return true;
   },
-  setChecked: function (productId, setChecked) {
-    Products.update(productId, { $set: { checked: setChecked} });
-  },
   updateProduct: function(productId, obj) {
+    console.log('obj', obj);
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
-    Products.update({_id: productId}, {$set:obj});
+    console.log('id', productId);
+    Products.update(productId, {$set:obj});
     return true;
   }
 

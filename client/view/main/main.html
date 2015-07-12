@@ -1,7 +1,6 @@
 <template name="Main">
   <div class="fluid-container">
 
-  <!-- {{> navBar}} -->
   {{> AdminProductForm}}
 
     <div class="row product-row">
@@ -24,16 +23,14 @@
       </div>
     </div>
   </div> <!-- end fluid-container -->
-    <!-- {{> footerTemplate}} -->
 </template>
 
 <template name="productTemplate">
-  <li class="{{#if checked}}checked{{/if}}" data-action="product">
+  <li class="li-product" data-action="product">
     <div class="row">
       {{#if isInRole 'admin'}}
-        <button class="delete">&times;</button>
+        <button data-action="delete-product" class="delete-product">&times;</button>
         <a href="#" class="edit-link">edit</a>
-        <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked"/> -->
       {{/if}}
       <div class="xs-col-12">
         <h3 class="product-title ">{{title}}</h3>
@@ -63,61 +60,3 @@
     </div>
   </footer>
 </template>
-
-<template name="AdminProductForm">
-  {{#if isInRole 'admin'}}
-  <div class="row">
-    <button class="show-form {{hideForm}}">Open Form</button>
-    <div class="col-xs-12 col-sm-8 product-form {{showForm}}">
-      <button class="hide-form">&times;</button>
-      <h3>{{header}}</h3>
-        <!-- text input -->
-        <div class="form-group">
-          <label>Product Name</label>
-          <input class="form-control" type="text" name="title" placeholder="Product name">
-        </div>
-
-        <!-- text input -->
-        <div class="form-group">
-          <label>Price Gallon</label>
-          <input class="form-control" type="text" name="price" placeholder="Gallon Price">
-        </div>
-
-        <!-- text input -->
-        <div class="form-group">
-          <label>Price Quart</label>
-          <input class="form-control" type="text" name="quart" placeholder="Quart Price">
-        </div>
-
-        <!-- text input -->
-        <div class="form-group">
-          <label>Image File</label>
-          <input class="form-control" type="text" name="image" placeholder="Image">
-        </div>
-
-        <!-- text area input-->
-        <div class="form-group">
-          <label>Description</label>
-            <textarea class="form-control" rows="5" cols="62" type="text" name="text" placeholder="Description"></textarea>
-        </div>
-        <br>
-        {{#if editMode}}
-          <button class="btn btn-success update-product">Edit</button>
-        {{else}}
-          <button class="btn btn-success save-product">Add</button>
-        {{/if}}
-        <button class="btn btn-default cancel">Cancel</button>
-        <br>
-
-        <!--checkbox-->
-        <!-- <div class="form-group">
-          <label class="hide-checked"><input type="checkbox" checked="{{hideChecked}}">
-              Hide Out of Stock Products
-          </label>
-        </div> -->
-    </div>
-  </div>
-  {{/if}}
-</template>
-
-
