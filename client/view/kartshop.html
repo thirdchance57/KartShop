@@ -1,15 +1,70 @@
-<head>
-  <title>Alien Technology Tire Prep</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-<!-- <template name="mainLayout"> -->
+<template name="Main">
   <div class="fluid-container">
 
-  {{> navBar}}
+  <!-- {{> navBar}} -->
+  {{> AdminProductForm}}
 
+    <div class="row product-row">
+      <div class="col-xs-6 col-sm-3 ">
+        <img class="background-image" src="images/greenBud.jpg">
+        <img class="background-image mt-40" src="images/bludBud.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-6">
+        <ul>
+          {{#each products}}
+            {{> productTemplate}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="right-img">
+        <div class="col-sm-3">
+          <img class="background-image mb-40" src="/images/pinkBud.jpg">
+          <img class="background-image mt-40" src="images/yellowBud.jpg">
+        </div>
+      </div>
+    </div>
+  </div> <!-- end fluid-container -->
+    <!-- {{> footerTemplate}} -->
+</template>
+
+<template name="productTemplate">
+  <li class="{{#if checked}}checked{{/if}}" data-action="product">
+    <div class="row">
+      {{#if isInRole 'admin'}}
+        <button class="delete">&times;</button>
+        <a href="#" class="edit-link">edit</a>
+        <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked"/> -->
+      {{/if}}
+      <div class="xs-col-12">
+        <h3 class="product-title ">{{title}}</h3>
+        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 inline-item">
+        <span class="inline-item">{{text}}</span><br>
+        <h4 class="price-text">{{price}}</h4>
+        <h4 class="price-text">{{quart}}</h4>
+      </div>
+    </div>
+  </li>
+</template>
+
+<template name="footerTemplate">
+  <footer>
+    <div class="fluid-container">
+      <div class="row follow-footer">
+        <div class="col-xs-12">
+          <a href="mailto:alientireprep@gmail.com?Subject=Alien%20Prep%20Question" target="_top"><img class="icon-image" src="images/mail.png"></a>
+          <a href="tel:1-417-434-7551"><img class="icon-image" src="images/phone.png"></a>
+          <p class="text-muted">Contact or Follow us</p>
+          <a href="https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174" target="_blank"><img class="icon-image" src="images/facebook-logo.png"></a>
+          <a href="https://twitter.com/alientechprep" target="_blank"><img class="icon-image" src="images/twitter.png"></a>
+          <a href="https://instagram.com/alientechprep/" target="_blank"><img class="icon-image" src="images/instagram.png"></a>
+          <a href="https://www.youtube.com/channel/UC1Xn6na6nixw9KYpiFU3Qhw" target="_blank"><img class="icon-image" src="images/youtube.png"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<template name="AdminProductForm">
   {{#if isInRole 'admin'}}
   <div class="row">
     <button class="show-form {{hideForm}}">Open Form</button>
@@ -63,85 +118,6 @@
     </div>
   </div>
   {{/if}}
-
-    <div class="row product-row">
-      <div class="col-xs-6 col-sm-3 ">
-        <img class="background-image" src="images/greenBud.jpg">
-        <img class="background-image mt-40" src="images/bludBud.jpg">
-      </div>
-      <div class="col-xs-6 col-sm-6">
-        <ul>
-          {{#each products}}
-            {{> productTemplate}}
-          {{/each}}
-        </ul>
-      </div>
-      <div class="right-img">
-        <div class="col-sm-3">
-          <img class="background-image mb-40" src="/images/pinkBud.jpg">
-          <img class="background-image mt-40" src="images/yellowBud.jpg">
-        </div>
-      </div>
-    </div>
-  </div> <!-- end fluid-container -->
-    {{> footerTemplate}}
-</body>
-<!-- </template> -->
-
-<template name="productTemplate">
-  <li class="{{#if checked}}checked{{/if}}" data-action="product">
-    <div class="row">
-      {{#if isInRole 'admin'}}
-        <button class="delete">&times;</button>
-        <a href="#" class="edit-link">edit</a>
-        <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked"/> -->
-      {{/if}}
-      <div class="xs-col-12">
-        <h3 class="product-title ">{{title}}</h3>
-        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 inline-item">
-        <span class="inline-item">{{text}}</span><br>
-        <h4 class="price-text">{{price}}</h4>
-        <h4 class="price-text">{{quart}}</h4>
-      </div>
-    </div>
-  </li>
 </template>
 
-<template name="footerTemplate">
-  <footer>
-    <div class="fluid-container">
-      <div class="row follow-footer">
-        <div class="col-xs-12">
-          <a href="mailto:alientireprep@gmail.com?Subject=Alien%20Prep%20Question" target="_top"><img class="icon-image" src="images/mail.png"></a>
-          <a href="tel:1-417-434-7551"><img class="icon-image" src="images/phone.png"></a>
-          <p class="text-muted">Contact or Follow us</p>
-          <a href="https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174" target="_blank"><img class="icon-image" src="images/facebook-logo.png"></a>
-          <a href="https://twitter.com/alientechprep" target="_blank"><img class="icon-image" src="images/twitter.png"></a>
-          <a href="https://instagram.com/alientechprep/" target="_blank"><img class="icon-image" src="images/instagram.png"></a>
-          <a href="https://www.youtube.com/channel/UC1Xn6na6nixw9KYpiFU3Qhw" target="_blank"><img class="icon-image" src="images/youtube.png"></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</template>
 
-<template name="navBar">
-  <div class="jumbotron">
-    <div class="logo">
-      <a href="/products"><img class="logo-img" src="images/greenbudnoglow.png"></a>
-    </div>
-    <h1><b>Alien Tire Prep</b></h1>
-  </div>
-  <div class="row jumbotron-links">
-    <div class="col-xs-12">
-      <div class="smalltext pull-right">
-        <span>By:<a href="https://www.facebook.com/pages/4-State-Kart-Shop/835641649863174"> 4 State Kart Shop</a></span>
-      </div>
-      <div class="smalltext">
-        <span>{{> loginButtons}}</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="jumbotron-rainbow"></div>
-</template>

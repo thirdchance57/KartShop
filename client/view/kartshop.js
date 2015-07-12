@@ -1,8 +1,8 @@
-Template.body.rendered = function () {
+Template.Main.rendered = function () {
   Session.setDefault('viewMode', 'add');
 };
 
-Template.body.helpers({
+Template.Main.helpers({
   products: function () {
     // if (Session.get("hideChecked")) {
     //   // If hide completed is checked, filter tasks
@@ -46,7 +46,7 @@ Template.body.helpers({
   }
 });
 
-Template.body.events({
+Template.Main.events({
   "click [data-action=product]": function () {
     FlowRouter.go('/products/' + this._id);
   },
