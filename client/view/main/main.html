@@ -1,29 +1,29 @@
 <template name="Main">
   {{#if isSubReady 'products'}}
-  <div class="fluid-container">
+    <div class="fluid-container">
+    {{> AdminProductForm}}
+      <div class="row product-row">
+        <div class="col-xs-6 col-sm-3 ">
+          <img class="background-image" src="images/greenBud.jpg">
+          <img class="background-image mt-40" src="images/bludBud.jpg">
+        </div>
+        
+        <div class="col-xs-6 col-sm-6">
+          <ul>
+            {{#each products}}
+              {{> productTemplate}}
+            {{/each}}
+          </ul>
+        </div>
 
-  {{> AdminProductForm}}
-
-    <div class="row product-row">
-      <div class="col-xs-6 col-sm-3 ">
-        <img class="background-image" src="images/greenBud.jpg">
-        <img class="background-image mt-40" src="images/bludBud.jpg">
-      </div>
-      <div class="col-xs-6 col-sm-6">
-        <ul>
-          {{#each products}}
-            {{> productTemplate}}
-          {{/each}}
-        </ul>
-      </div>
-      <div class="right-img">
-        <div class="col-sm-3">
-          <img class="background-image mb-40" src="/images/pinkBud.jpg">
-          <img class="background-image mt-40" src="images/yellowBud.jpg">
+        <div class="right-img">
+          <div class="col-sm-3">
+            <img class="background-image mb-40" src="/images/pinkBud.jpg">
+            <img class="background-image mt-40" src="images/yellowBud.jpg">
+          </div>
         </div>
       </div>
-    </div>
-  </div> <!-- end fluid-container -->
+    </div> <!-- end fluid-container -->
   {{else}}
     <div class="loading"><h4>Loading...</h4></div>
   {{/if}}
