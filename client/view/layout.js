@@ -3,8 +3,8 @@
 //   console.log(Meteor.settings.public);
 // });
 Template.layout.rendered = function () {
-    var self = this; //In case you need it but self.data IS NOT REACTIVE
-
+  var self = this; //In case you need it but self.data IS NOT REACTIVE
+  console.log('ga fired');
   this.autorun(function(){
     //This is reactive
     var data = Template.currentData();
