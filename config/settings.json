@@ -1,0 +1,14 @@
+{
+  "public": {
+    "analyticsSettings": {
+      // Add your analytics tracking id's here
+      "Google Analytics" : {"trackingId": "UA-65052850-1"},
+      // "Mixpanel"         : {"token":  "your token", "people": true},
+      // "KISSmetrics"      : {"apiKey": "your api key"},
+      // "UserVoice"        : {"apiKey": "your api key"},
+      // "Sentry"           : {"config": "your config key"},
+      // "Segment.io"       : {"apiKey": "your api key"},
+      // "Keen IO"          : {"projectId": "your project id", "writeKey": "your write key"}
+    }
+  }
+}

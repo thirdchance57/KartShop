@@ -15,3 +15,4 @@ meteorhacks:flow-router
 meteorhacks:flow-layout
 reactive-var
 arillo:flow-router-helpers
+okgrow:analytics
