@@ -3,8 +3,8 @@
   {{> AdminProductForm}}
     <div class="row product-row">
       <div class="col-xs-6 col-sm-3 ">
-        <img class="background-image" src="images/greenBud.jpg">
-        <img class="background-image mt-40" src="images/bludBud.jpg">
+        <img class="background-image" src="{{siteURL}}/images/greenBud.jpg">
+        <img class="background-image mt-40" src="{{siteURL}}/images/bludBud.jpg">
       </div>
       
     {{#if isSubReady 'products'}}
@@ -21,8 +21,8 @@
 
       <div class="right-img">
         <div class="col-sm-3">
-          <img class="background-image mb-40" src="/images/pinkBud.jpg">
-          <img class="background-image mt-40" src="images/yellowBud.jpg">
+          <img class="background-image mb-40" src="{{siteURL}}/images/pinkBud.jpg">
+          <img class="background-image mt-40" src="{{siteURL}}/images/yellowBud.jpg">
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
       {{/if}}
       <div class="xs-col-12">
         <h3 class="product-title" data-action="product">{{title}}</h3>
-        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 product-img" data-action="product">
+        <img src="{{siteURL}}/images/{{image}}" class="pull-left mb-20 mr-20 product-img" data-action="product">
         <span class="inline-item">{{text}}</span><br>
         <h4 class="price-text">{{price}}</h4>
         <h4 class="price-text">{{quart}}</h4>
