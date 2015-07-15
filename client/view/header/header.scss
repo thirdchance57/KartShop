@@ -34,10 +34,13 @@
   left: 60px;
   top: 3px;
 }
+.logo-img:hover{
+  opacity: 0.8;
+}
 .logo-img{
+  cursor: pointer;
   max-width: 105px;
   margin: 5px 5px;
-
   @media screen and (max-width: 770px) {
       display: none;
   }
@@ -46,4 +49,9 @@
   font-size: 15px;
   float: left; 
   text-shadow: none;
+}
+.header-title:hover {
+  cursor: pointer;
+  text-shadow: 6px 4px 6px rgba(0, 0, 0, 1);
+  color: #efefef;
 }
