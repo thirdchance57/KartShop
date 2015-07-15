@@ -19,6 +19,8 @@ Template.AdminProductForm.events({
     var price = $("input[name~='price']").val("");
     var quart = $("input[name~='quart']").val("");
     var image = $("input[name~='image']").val("");
+    var imageQt = $("input[name~='image']").val("");
+    var imageEx = $("input[name~='image']").val("");
   },
   'click [data-action=update-product]': function (event) {
     event.preventDefault();
@@ -30,8 +32,10 @@ Template.AdminProductForm.events({
     obj.price = $("input[name~='price']").val();
     obj.quart = $("input[name~='quart']").val();
     obj.image = $("input[name~='image']").val();
+    obj.imageQt = $("input[name~='imageQt']").val();
+    obj.imageEx = $("input[name~='imageEx']").val();
     
-    if (confirm('Are you sure you want to save/edit: \n' + obj.title + ' \n' + obj.price +'\n' + obj.quart + '\n' + obj.text)) {
+    if (confirm('Are you sure you want to save/edit: \n' + obj.title + ' \n' + obj.price + '\n' + obj.quart + '\n' + obj.text + '\n' + obj.image + '\n' + obj.imageQt + '\n' + obj.imageEx)) {
       Meteor.call("updateProduct", id, obj, function (e, r){
         if (r) {
           title = $("input[name~='title']").val("");
@@ -39,6 +43,8 @@ Template.AdminProductForm.events({
           price = $("input[name~='price']").val("");
           quart = $("input[name~='quart']").val("");
           image = $("input[name~='image']").val("");
+          imageQt = $("input[name~='imageQt']").val("");
+          imageEx = $("input[name~='imageEx']").val("");
         }
       });
     }
@@ -51,15 +57,19 @@ Template.AdminProductForm.events({
     var price = $("input[name~='price']").val();
     var quart = $("input[name~='quart']").val();
     var image = $("input[name~='image']").val();
+    var imageQt = $("input[name~='imageQt']").val();
+    var imageEx = $("input[name~='imageEx']").val();
     
-    if (confirm('Are you sure you want add product:\n ' + title + '\n' + price + '\n' + quart + '\n' + text)) {
-      Meteor.call("addProduct", title, text, price, image, function (e, r){
+    if (confirm('Are you sure you want add product:\n ' + title + '\n' + price + '\n' + quart + '\n' + text + '\n' + image + '\n' + imageQt + '\n' + imageEx)) {
+      Meteor.call("addProduct", title, text, price, image, imageQt, imageEx, function (e, r){
         if (r) {
           title = $("input[name~='title']").val("");
           text =  $("textarea[name~='text']").val("");
           price = $("input[name~='price']").val("");
           quart = $("input[name~='quart']").val("");
           image = $("input[name~='image']").val("");
+          imageQt = $("input[name~='imageQt']").val("");
+          imageEx = $("input[name~='imageEx']").val("");
         }
       });
     }

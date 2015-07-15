@@ -2,3 +2,14 @@
   margin: 20px 0px;
   background: #AECFB9;
 }
+.qt-img {
+  max-height: 250px;
+  box-shadow: 8px 8px 5px #888888;
+
+  @media screen and (max-width: 470px) {
+    display: none !important;
+  }
+}
+.ga-img{
+  box-shadow: 8px 8px 6px #888888;
+}
