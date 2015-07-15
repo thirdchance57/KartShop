@@ -7,7 +7,9 @@
       <div class="col-xs-8 product-detail">
         <h3 class="product-title">{{title}}</h3>
         <img src="{{siteURL}}/images/{{image}}" class="pull-left mb-20 mr-20 ga-img">
+        {{#if imageQt}}
         <img src="{{siteURL}}/images/{{imageQt}}" class="pull-left mb-20 mr-20 qt-img">
+        {{/if}}
         <span class="inline-item">{{text}}</span><br>
         <h4 class="price-text">{{price}}</h4>
         <h4 class="price-text">{{quart}}</h4>
