@@ -30,18 +30,19 @@
 </template>
 
 <template name="productTemplate">
-  <li class="li-product" data-action="product">
+  <li class="li-product">
     <div class="row">
       {{#if isInRole 'admin'}}
         <button data-action="delete-product" class="delete-product">&times;</button>
         <a href="#" class="edit-link">edit</a>
       {{/if}}
       <div class="xs-col-12">
-        <h3 class="product-title ">{{title}}</h3>
-        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 inline-item">
+        <h3 class="product-title" data-action="product">{{title}}</h3>
+        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 product-img" data-action="product">
         <span class="inline-item">{{text}}</span><br>
         <h4 class="price-text">{{price}}</h4>
         <h4 class="price-text">{{quart}}</h4>
+        <a data-action="product" href="#">Details</a>
       </div>
     </div>
   </li>
