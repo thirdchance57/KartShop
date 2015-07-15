@@ -1,11 +1,20 @@
 <template name="ProductDetail">  
   {{#if isSubReady 'product'}}
     {{#with getProduct}}
-    <h2>{{title}}</h2>
-    <p>{{price}}</p>
-    <p>{{quart}}</p>
-    <p>{{text}}</p>
-    <img src="{{image}}">
+    <div class="fluid-container">
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8 product-detail">
+        <h3 class="product-title">{{title}}</h3>
+        <img src="/images/{{image}}" class="pull-left mb-20 mr-20 product-img">
+        <span class="inline-item">{{text}}</span><br>
+        <h4 class="price-text">{{price}}</h4>
+        <h4 class="price-text">{{quart}}</h4>
+        <button class="btn btn-lg btn-default mb-20" data-action="purchase">Purchase</button>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+    </div>
     {{/with}}
   {{else}}
     Loading...

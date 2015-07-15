@@ -1,0 +1,14 @@
+.contact-detail {
+  margin: 20px 0px;
+  text-align: center;
+  font-size: 20px;
+  @media screen and (max-width: 770px) {
+    font-size: 14px;
+  }
+}
+.contact-break {
+  display: none;
+  @media screen and (max-width: 770px) {
+    display: block;
+  }
+}

@@ -3,3 +3,9 @@ Template.ProductDetail.helpers({
     return Products.findOne();
   }
 });
+
+Template.ProductDetail.events({
+  'click [data-action=purchase]': function () {
+    FlowRouter.go('/contact');
+  }
+});
